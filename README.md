@@ -63,7 +63,7 @@ Use the config parameter `package`, which is an array of objects (hence each ref
 
 Filters the pandoc AST to improve syntax for LaTeX environments
 
-### Compile file to LaTeX in place
+### Compile file to LaTeX in place (no temp/aux files)
 
 [pandoc_latex_current_file.ts](src/pandoc_latex_current_file.ts)
 
