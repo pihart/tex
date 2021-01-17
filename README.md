@@ -14,6 +14,10 @@ To use, make it visible to your LaTeX engine.
 
 # pandoc/Markdown
 
+```shell
+npm i https://github.com/pihart/tex
+```
+
 ## Template
 
 [pandoc-template.tex](src/pandoc-template.tex)
