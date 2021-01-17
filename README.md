@@ -65,7 +65,7 @@ Filters the pandoc AST to improve syntax for LaTeX environments
 
 ### Compile file to LaTeX in place (no temp/aux files)
 
-[pandoc_latex_current_file.ts](src/pandoc_latex_current_file.ts)
+[pandoc_latex_current_file.ts](src/script/pandoc_latex_current_file.ts)
 
 Uses the pandoc filter and template from above.
 

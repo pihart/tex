@@ -27,6 +27,10 @@ const pandoc = (
 
 export default pandoc;
 
-export const TEMPLATES = { latex: path.join(__dirname, "pandoc-template.tex") };
+export const TEMPLATES = {
+  latex: path.join(__dirname, "..", "pandoc-template.tex"),
+};
 
-export const FILTERS = { latex: path.join(__dirname, "filters", "latex.js") };
+export const FILTERS = {
+  latex: path.join(__dirname, "..", "filters", "latex.js"),
+};
