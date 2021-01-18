@@ -24,28 +24,40 @@
 
 \newif\ifavimehrageneratednomath\avimehrageneratednomathfalse
 \DeclareOption{nomath}{\avimehrageneratednomathtrue}
+
 \newif\ifavimehrageneratednocolor\avimehrageneratednocolorfalse
 \DeclareOption{nocolor}{\avimehrageneratednocolortrue}
+
 \newif\ifavimehrageneratednohandout\avimehrageneratednohandoutfalse
 \DeclareOption{nohandout}{\avimehrageneratednohandouttrue}
+
 \newif\ifavimehrageneratedcomputing\avimehrageneratedcomputingfalse
 \DeclareOption{computing}{\avimehrageneratedcomputingtrue}
+
 \newif\ifavimehrageneratedfootnote\avimehrageneratedfootnotefalse
 \DeclareOption{footnote}{\avimehrageneratedfootnotetrue}
+
 \newif\ifavimehrageneratedphysics\avimehrageneratedphysicsfalse
 \DeclareOption{physics}{\avimehrageneratedphysicstrue}
+
 \newif\ifavimehrageneratedlinks\avimehrageneratedlinksfalse
 \DeclareOption{links}{\avimehrageneratedlinkstrue}
+
 \newif\ifavimehrageneratedheader\avimehrageneratedheaderfalse
 \DeclareOption{header}{\avimehrageneratedheadertrue}
+
 \newif\ifavimehrageneratedfooter\avimehrageneratedfooterfalse
 \DeclareOption{footer}{\avimehrageneratedfootertrue}
+
 \newif\ifavimehrageneratedtheorem\avimehrageneratedtheoremfalse
 \DeclareOption{theorem}{\avimehrageneratedtheoremtrue}
+
 \newif\ifavimehrageneratedthmboxed\avimehrageneratedthmboxedfalse
 \DeclareOption{thmboxed}{\avimehrageneratedthmboxedtrue}
+
 \newif\ifavimehrageneratedpage\avimehrageneratedpagefalse
 \DeclareOption{page}{\avimehrageneratedpagetrue}
+
 \newif\ifavimehrageneratedthin\avimehrageneratedthinfalse
 \DeclareOption{thin}{\avimehrageneratedthintrue}
 
@@ -136,6 +148,7 @@
 
 
 \fi
+
 %%%%%%%%%%%%%%%%
 % Prevents defining colors
 %%%%%%%%%%%%%%%%
@@ -158,6 +171,7 @@
 \definecolor{DarkMidnightBlue}{RGB}{0,40,60}
 
 \fi
+
 \ifavimehrageneratednohandout
   
 \else
@@ -179,6 +193,7 @@
 {\end{problemset}\ignorespacesafterend}
 
 \fi
+
 %%%%%%%%%%%%%%%%
 % Computing
 % Requires `color`
@@ -201,11 +216,13 @@
 \newcommand{\importcode}[1]{\VerbatimInput{includes/code/#1}}
 
 \fi
+
 \ifavimehrageneratedfootnote
   \RequirePackage[bottom]{footmisc}
 \else
   
 \fi
+
 \ifavimehrageneratedphysics
   \newcommand{\meter}{\mathrm{ m}}
 \newcommand{\millimeter}{\mathrm{ mm}}
@@ -244,6 +261,7 @@
 \else
   
 \fi
+
 %%%%%%%%%%%%%%%%
 % Color links, apply hyperref, and add graphic next to links called with \href
 % Requires `color`
@@ -278,6 +296,7 @@
 \else
   
 \fi
+
 \ifavimehrageneratedheader
   \RequirePackage{fancyhdr}
 
@@ -287,6 +306,7 @@
 \else
   
 \fi
+
 \ifavimehrageneratedfooter
   %%%%%
 % CJ Quines
@@ -309,6 +329,7 @@
 \else
   
 \fi
+
 \ifavimehrageneratedtheorem
   %%%%
 % CJ Quines
@@ -376,6 +397,7 @@
 \else
   
 \fi
+
 \ifavimehrageneratedthmboxed
   \usetikzlibrary{calc,intersections,through,angles,shapes.geometric}
 
@@ -612,6 +634,7 @@
 \else
   
 \fi
+
 \ifavimehrageneratedpage
   \setlength{\voffset}{-1.0in}
 \setlength{\hoffset}{-1.0in}
@@ -637,6 +660,7 @@
 \else
   
 \fi
+
 \ifavimehrageneratedthin
   \RequirePackage{fancyhdr}
 

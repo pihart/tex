@@ -36,7 +36,7 @@ export type Rule = {
  * @param packageName The name of the package that is provided
  * @param license The license for the file as a LaTeX comment
  * @param header Any text in the source code above the license, usually as a LaTeX comment
- * @return The sty file
+ * @return The sty file contents
  */
 const generateSty = (
   rules: Rule[],
@@ -72,11 +72,11 @@ ${license}
 
 \\ProvidesPackage{${packageName}}
 
-${options.join("\n")}
+${options.join("\n\n")}
 
 \\ProcessOptions\\relax
 
-${cases.join("\n")}`;
+${cases.join("\n\n")}`;
 };
 
 export default generateSty;
