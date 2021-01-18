@@ -39,19 +39,19 @@ Set config params with front-matter or cli options.
 
 - pset
   - for problem set solutions
-- default-worksheet
+- default-style
   - for textbook-style worksheets
 
 ##### Use packages
 
-Use the config parameter `package`, which is an array of objects (hence each referred to as `package`) of any of these types (can mix-and-match):
+Use the config parameter `package`, which is an array of objects (each is henceforth referred to as `package`) of any of these types (can mix-and-match):
 
 - string
   - `\usepackage{<package>}`
 - { name: string }
   - `\usepackage{<package.name>}`
 - { name: string, options: string }
-  - `\usepackage[<options>]{<package.name>}`
+  - `\usepackage[<package.options>]{<package.name>}`
 
 ##### Other config options
 
