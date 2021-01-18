@@ -8,9 +8,9 @@
 \documentclass[12pt,paper=letter]{article}
 
 $if(pset)$
-\usepackage[header,footer,links,theorem,footnote]{worksheet}
-$elseif(default-worksheet)$
-\usepackage[page,$if(wide)$thin$else$center$endif$,$if(footnote)$footnote,$endif$links]{worksheet}
+\usepackage[links,theorem,thmboxed,footnote]{avimehra}
+$elseif(default-style)$
+\usepackage[page,links,theorem,thmboxed,handout,$if(wide)$thin$else$center$endif$,$if(footnote)$footnote$endif$]{avimehra}
 $endif$
 
 $if(title)$
