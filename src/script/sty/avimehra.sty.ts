@@ -60,7 +60,7 @@ async function execute() {
     { name: "thin", if: thin },
   ];
 
-  await writeFile(path.join(__dirname, "avimehra.sty"), generateSty(rules));
+  await writeFile(path.join(__dirname, "../../../texmf/tex/latex/avimehra.sty"), generateSty(rules));
 }
 
 execute();
