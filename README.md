@@ -6,11 +6,17 @@ Utilities I commonly use with LaTeX
 
 ### worksheet.sty
 
-[worksheet.sty](texmf/tex/latex/worksheet.sty)
+[avimehra.sty]
 
 All-encompassing package
 
 To use, make it visible to your LaTeX engine.
+
+### Generate your own package file
+
+[generate-sty.ts](src/lib/generate-sty.ts)
+
+Example: [avimehra.sty.ts](src/script/sty/avimehra.sty.ts) is used to generate the aforementioned [avimehra.sty].
 
 ## pandoc/Markdown
 
@@ -29,7 +35,7 @@ Tested with pdflatex.
 
 Set config params with front-matter or cli options.
 
-##### Style presets (assume `worksheet.sty` is visible)
+##### Style presets (assume [avimehra.sty] is visible)
 
 - pset
   - for problem set solutions
@@ -76,3 +82,5 @@ Usually used on a Markdown file.
 #### IntelliJ/JetBrains Run Configuration
 
 By adding the run configuration [Pandoc_LaTeX_Current_File.xml](.idea/runConfigurations/Pandoc_LaTeX_Current_File.xml), clicking run will actually compile the currently opened file in place, hence the name.
+
+[avimehra.sty]: texmf/tex/latex/avimehra.sty
