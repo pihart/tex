@@ -1,0 +1,80 @@
+\RequirePackage{amsfonts}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\CC}{\mathcal{C}} % Some class
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\I}{\mathbb{I}} % Identity matrix; usually $I$ is preferred
+
+% Unary grouping operators (cjq)
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+\newcommand{\round}[1]{\sbr{#1}}
+%
+\newcommand{\del}[1]{\left( #1 \right)}
+\newcommand{\cbr}[1]{\left\{ #1 \right\}}
+\newcommand{\sbr}[1]{\left[ #1 \right]}
+\newcommand{\dbr}[1]{\llbracket #1 \rrbracket}
+\newcommand{\set}[1]{\cbr{#1}}
+\newcommand{\components}[1]{\left\langle #1 \right\rangle}
+
+% Evenly spaced matrix
+\newcommand\sqmatrix[2][c]{%
+    \fixTABwidth{T}%
+    \setbox0=\hbox{$\tabbedCenterstack{#2}$}%
+    \setstackgap{L}{\dimexpr\maxTAB@width+\tabbed@gap}%
+    \tabbedCenterstack[#1]{#2}%
+}
+
+% Field and ramification theories
+\newcommand{\F}{\mathbb{F}} % Finite field
+\newcommand{\OO}{\mathcal{O}} % Order
+%\renewcommand{\P}{\mathbb{P}}
+\newcommand{\p}{\mathfrak{p}} % Prime ideals
+\newcommand{\q}{\mathfrak{q}}
+\newcommand{\Quad}[1]{\Q\del{\sqrt{#1}}} % quadratic field
+
+\newcommand{\A}{\:\forall\:}
+\newcommand{\E}{\:\exists\:}
+%\newcommand\where{\mathrel{\colon}}
+
+\DeclareMathOperator{\cis}{cis}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\Trace}{Trace}
+\DeclareMathOperator{\Norm}{Norm}
+\DeclareMathOperator{\Frac}{Frac}
+\DeclareMathOperator{\Cov}{Cov} % Covolume
+\DeclareMathOperator{\Conv}{Conv} % Convex hull
+
+% Elementary number theory
+\newcommand{\divides}{\mathrel{\mid}}
+\newcommand{\legendre}[2]{\del(\frac{#1}{#2})}
+\DeclareMathOperator{\lcm}{lcm}
+
+% Combinatorics (cjq)
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+% Geometry (cjq)
+\newcommand{\dang}{\measuredangle}
+\newcommand{\ray}[1]{\overrightarrow{#1}}
+% \newcommand{\vec}[1]{\overrightarrow{#1}}
+\newcommand{\seg}[1]{\overline{#1}}
+\newcommand{\arc}[1]{\wideparen{#1}}
+\newcommand{\dg}{^\circ}
+
+% Differential calculus
+\newcommand{\dydx}{\frac{dy}{dx}\,}
+\newcommand{\ddx}{\frac{d}{dx}\,}
+
+% Function analysis
+\newcommand\knuth{\mathbin{\uparrow}}
+
