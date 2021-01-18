@@ -51,6 +51,7 @@ const generateSty = (
 \\DeclareOption{${name}}{\\avimehragenerated${name}true}`
   );
 
+  // cannot indent entire blocks because they may internally depend on whitespace (e.g. verbatim)
   const cases = rules.map(
     ({ name, if: ifCommand = "", else: elseCommand = "", description }) => `${
       description
