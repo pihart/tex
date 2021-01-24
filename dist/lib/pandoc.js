@@ -27,6 +27,9 @@ const pandoc = (src, out, options = {}, pwd = "") => {
     return exec_1.default(`pandoc ${src}${cliOptions}`);
 };
 exports.default = pandoc;
-exports.TEMPLATES = { latex: path.join(__dirname, "pandoc-template.tex") };
-exports.FILTERS = { latex: path.join(__dirname, "filters", "latex.js") };
-//# sourceMappingURL=pandoc.js.map
+exports.TEMPLATES = {
+    latex: path.join(__dirname, "..", "pandoc-template.tex"),
+};
+exports.FILTERS = {
+    latex: path.join(__dirname, "..", "filters", "latex.js"),
+};

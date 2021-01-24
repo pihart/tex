@@ -21,4 +21,3 @@ const exec = (command) => new Promise((resolve, reject) => shelljs_1.exec(comman
 }));
 exports.exec = exec;
 exports.default = exports.exec;
-//# sourceMappingURL=exec.js.map
