@@ -21,12 +21,12 @@ const pandoc = (src, out, options = {}, pwd = "") => {
     const { "-o": _ } = options, rest = __rest(options, ["-o"]);
     const cliOptions = Object.entries(Object.assign(Object.assign({}, rest), { output: out }))
         .map(([key, val]) => {
-        const keyPrepended = val === false ? "" : key.startsWith("-") ? ` ${key}` : ` --${key}`;
-        const valWrapped = typeof val === "boolean" ? "" : ` ` + wrapString(val);
-        return `${keyPrepended}${valWrapped}`;
+        const keyPrepended = val === false ? "" : key.startsWith("-") ? key : `--${key}`;
+        const valWrapped = typeof val === "boolean" ? "" : wrapString(val);
+        return `${keyPrepended} ${valWrapped}`;
     })
-        .join("");
-    return exec_1.default(`pandoc ${wrapString(src)}${cliOptions}`);
+        .join(" ");
+    return exec_1.default(`pandoc ${wrapString(src)} ${cliOptions}`);
 };
 exports.default = pandoc;
 exports.TEMPLATES = {

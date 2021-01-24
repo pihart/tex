@@ -17,14 +17,14 @@ const pandoc = (
   const cliOptions = Object.entries<string | boolean>({ ...rest, output: out })
     .map(([key, val]) => {
       const keyPrepended =
-        val === false ? "" : key.startsWith("-") ? ` ${key}` : ` --${key}`;
+        val === false ? "" : key.startsWith("-") ? key : `--${key}`;
 
-      const valWrapped = typeof val === "boolean" ? "" : ` ` + wrapString(val);
+      const valWrapped = typeof val === "boolean" ? "" : wrapString(val);
 
-      return `${keyPrepended}${valWrapped}`;
+      return `${keyPrepended} ${valWrapped}`;
     })
-    .join("");
-  return exec(`pandoc ${wrapString(src)}${cliOptions}`);
+    .join(" ");
+  return exec(`pandoc ${wrapString(src)} ${cliOptions}`);
 };
 
 export default pandoc;
