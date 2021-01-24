@@ -14,17 +14,19 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.FILTERS = exports.TEMPLATES = void 0;
 const path = require("path");
 const exec_1 = require("./exec");
+const escapeString = (str) => str.replace(/"/g, `\\"`);
+const wrapString = (str) => `"${escapeString(str)}"`;
 const pandoc = (src, out, options = {}, pwd = "") => {
     exec_1.cd(pwd);
     const { "-o": _ } = options, rest = __rest(options, ["-o"]);
     const cliOptions = Object.entries(Object.assign(Object.assign({}, rest), { output: out }))
         .map(([key, val]) => {
         const keyPrepended = val === false ? "" : key.startsWith("-") ? ` ${key}` : ` --${key}`;
-        const valWrapped = typeof val === "boolean" ? "" : ` "${val.replace(/"/g, `\\"`)}"`;
+        const valWrapped = typeof val === "boolean" ? "" : ` ` + wrapString(val);
         return `${keyPrepended}${valWrapped}`;
     })
         .join("");
-    return exec_1.default(`pandoc ${src}${cliOptions}`);
+    return exec_1.default(`pandoc ${wrapString(src)}${cliOptions}`);
 };
 exports.default = pandoc;
 exports.TEMPLATES = {

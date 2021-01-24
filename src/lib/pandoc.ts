@@ -1,6 +1,9 @@
 import * as path from "path";
 import exec, { cd } from "./exec";
 
+const escapeString = (str: string) => str.replace(/"/g, `\\"`);
+const wrapString = (str: string) => `"${escapeString(str)}"`;
+
 const pandoc = (
   src: string,
   out: string,
@@ -11,18 +14,17 @@ const pandoc = (
 
   const { "-o": _, ...rest } = options;
 
-  const cliOptions = Object.entries({ ...rest, output: out })
-    .map(([key, val]: [string, string | boolean]) => {
+  const cliOptions = Object.entries<string | boolean>({ ...rest, output: out })
+    .map(([key, val]) => {
       const keyPrepended =
         val === false ? "" : key.startsWith("-") ? ` ${key}` : ` --${key}`;
 
-      const valWrapped =
-        typeof val === "boolean" ? "" : ` "${val.replace(/"/g, `\\"`)}"`;
+      const valWrapped = typeof val === "boolean" ? "" : ` ` + wrapString(val);
 
       return `${keyPrepended}${valWrapped}`;
     })
     .join("");
-  return exec(`pandoc ${src}${cliOptions}`);
+  return exec(`pandoc ${wrapString(src)}${cliOptions}`);
 };
 
 export default pandoc;
