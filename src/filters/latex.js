@@ -17,6 +17,7 @@ const LATEX_ENVS = [
       "remark",
       "question",
     ],
+    "proof",
   ]
     .map((env) => [env, `${env}*`])
     .flat(),
