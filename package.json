@@ -1,6 +1,11 @@
 {
   "name": "tex",
   "version": "1.0.0",
+  "scripts": {
+    "build": "tsc",
+    "postbuild": "npm run copy-files",
+    "copy-files": "node copy-files.js"
+  },
   "dependencies": {
     "pandoc-filter": "^2.0.2",
     "shelljs": "^0.8.4"
