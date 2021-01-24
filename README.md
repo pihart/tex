@@ -4,7 +4,7 @@ Utilities I commonly use with LaTeX
 
 ## LaTeX
 
-### worksheet.sty
+### avimehra.sty
 
 [avimehra.sty]
 
