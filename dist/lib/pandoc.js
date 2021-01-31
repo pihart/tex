@@ -13,11 +13,11 @@ var __rest = (this && this.__rest) || function (s, e) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FILTERS = exports.TEMPLATES = void 0;
 const path = require("path");
-const exec_1 = require("./exec");
+const shell = require("./exec");
 const escapeString = (str) => str.replace(/"/g, `\\"`);
 const wrapString = (str) => `"${escapeString(str)}"`;
-const pandoc = (src, out, options = {}, pwd = "") => {
-    exec_1.cd(pwd);
+const exec = (src, out, options = {}, pwd = "") => {
+    shell.cd(pwd);
     const { "-o": _ } = options, rest = __rest(options, ["-o"]);
     const cliOptions = Object.entries(Object.assign(Object.assign({}, rest), { output: out }))
         .map(([key, val]) => {
@@ -26,9 +26,9 @@ const pandoc = (src, out, options = {}, pwd = "") => {
         return `${keyPrepended} ${valWrapped}`;
     })
         .join(" ");
-    return exec_1.default(`pandoc ${wrapString(src)} ${cliOptions}`);
+    return shell.exec(`pandoc ${wrapString(src)} ${cliOptions}`);
 };
-exports.default = pandoc;
+exports.default = exec;
 exports.TEMPLATES = {
     latex: path.join(__dirname, "..", "pandoc-template.tex"),
 };
