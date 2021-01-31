@@ -11,7 +11,7 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.FILTERS = exports.TEMPLATES = void 0;
+exports.FILTERS = exports.TEMPLATES = exports.exec = void 0;
 const path = require("path");
 const shell = require("./shell");
 const escapeString = (str) => str.replace(/"/g, `\\"`);
@@ -28,7 +28,7 @@ const exec = (src, out, options = {}, pwd = "") => {
         .join(" ");
     return shell.exec(`pandoc ${wrapString(src)} ${cliOptions}`);
 };
-exports.default = exec;
+exports.exec = exec;
 exports.TEMPLATES = {
     latex: path.join(__dirname, "..", "pandoc-template.tex"),
 };

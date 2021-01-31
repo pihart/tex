@@ -11,5 +11,3 @@ export const exec = (command: string) =>
       resolve(value);
     })
   );
-
-export default exec;

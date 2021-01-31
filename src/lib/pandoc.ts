@@ -4,7 +4,7 @@ import * as shell from "./shell";
 const escapeString = (str: string) => str.replace(/"/g, `\\"`);
 const wrapString = (str: string) => `"${escapeString(str)}"`;
 
-const exec = (
+export const exec = (
   src: string,
   out: string,
   options: { [key: string]: string | boolean } = {},
@@ -26,8 +26,6 @@ const exec = (
     .join(" ");
   return shell.exec(`pandoc ${wrapString(src)} ${cliOptions}`);
 };
-
-export default exec;
 
 export const TEMPLATES = {
   latex: path.join(__dirname, "..", "pandoc-template.tex"),

@@ -20,4 +20,3 @@ const exec = (command) => new Promise((resolve, reject) => shelljs_1.exec(comman
     resolve(value);
 }));
 exports.exec = exec;
-exports.default = exports.exec;
