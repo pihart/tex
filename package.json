@@ -1,6 +1,6 @@
 {
   "name": "tex",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "scripts": {
     "build": "tsc",
     "postbuild": "npm run copy-files",
