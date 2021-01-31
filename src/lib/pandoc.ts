@@ -1,5 +1,5 @@
 import * as path from "path";
-import * as shell from "./exec";
+import * as shell from "./shell";
 
 const escapeString = (str: string) => str.replace(/"/g, `\\"`);
 const wrapString = (str: string) => `"${escapeString(str)}"`;

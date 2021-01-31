@@ -1,2 +1,2 @@
-export * as shell from "./lib/exec"
-export * as pandoc from "./lib/pandoc"
+export * as shell from "./lib/shell";
+export * as pandoc from "./lib/pandoc";

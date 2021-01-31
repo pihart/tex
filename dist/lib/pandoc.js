@@ -13,7 +13,7 @@ var __rest = (this && this.__rest) || function (s, e) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FILTERS = exports.TEMPLATES = void 0;
 const path = require("path");
-const shell = require("./exec");
+const shell = require("./shell");
 const escapeString = (str) => str.replace(/"/g, `\\"`);
 const wrapString = (str) => `"${escapeString(str)}"`;
 const exec = (src, out, options = {}, pwd = "") => {
