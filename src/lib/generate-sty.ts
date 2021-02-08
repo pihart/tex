@@ -1,8 +1,3 @@
-/*
- * LaTeX source
- * Currently an alias for string; better definitions may come
- */
-
 import * as Licenses from "../includes/licenses";
 
 /**
