@@ -8,7 +8,7 @@ export const exec = (
     code: number;
     value: string;
     error: string;
-  }) => boolean = ({ error }) => !error
+  }) => boolean = ({ error }) => !!error
 ) =>
   new Promise<string>((resolve, reject) =>
     oldExec(command, { async: true }, (code, value, error) => {
