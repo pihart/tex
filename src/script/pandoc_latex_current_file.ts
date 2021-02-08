@@ -7,6 +7,11 @@ const [src, out, dirname] = process.argv.slice(2);
 exec(
   src,
   out,
-  { template: TEMPLATES.latex, filter: FILTERS.latex, quiet: true },
+  {
+    template: TEMPLATES.latex,
+    filter: FILTERS.latex,
+    quiet: true,
+    citeproc: true,
+  },
   dirname
 );
