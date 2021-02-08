@@ -13,10 +13,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.exec = void 0;
 const shelljs_1 = require("shelljs");
 __exportStar(require("shelljs"), exports);
-const exec = (command) => new Promise((resolve, reject) => shelljs_1.exec(command, { async: true }, (code, value, error) => {
-    if (error) {
-        return reject(new Error(error));
+const exec = (command, shouldReject = ({ error }) => !error) => new Promise((resolve, reject) => shelljs_1.exec(command, { async: true }, (code, value, error) => {
+    if (shouldReject({ code, value, error })) {
+        reject(new Error(error));
     }
-    resolve(value);
+    else {
+        resolve(value);
+    }
 }));
 exports.exec = exec;

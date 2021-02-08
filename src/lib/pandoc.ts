@@ -28,18 +28,25 @@ export const exec = async (
     })
     .join(" ");
 
+  const pandoc = () => shell.exec(`pandoc ${wrapString(src)} ${cliOptions}`);
   const pdfLaTeX = () =>
-    shell.exec(`pdflatex ${wrapString(fileNameNoExt)} -halt-on-error`);
-  await shell.exec(`pandoc ${wrapString(src)} ${cliOptions}`);
-  await pdfLaTeX();
-  await shell.exec(`bibtex ${wrapString(fileNameNoExt)}`);
-  await pdfLaTeX();
-  await pdfLaTeX();
-  await shell.rm(
-    ["aux", "bbl", "blg", "log", "out", "tex"].map(
-      (ext) => `${fileNameNoExt}.${ext}`
-    )
-  );
+    shell.exec(
+      `pdflatex ${wrapString(fileNameNoExt)} -halt-on-error`,
+      ({ code }) => code !== 0
+    );
+  const bibtex = () => shell.exec(`bibtex ${wrapString(fileNameNoExt)}`);
+
+  try {
+    await pandoc().then(pdfLaTeX).then(bibtex).then(pdfLaTeX).then(pdfLaTeX);
+  } catch (e) {
+    console.error(e);
+  } finally {
+    await shell.rm(
+      ["aux", "bbl", "blg", "log", "out", "tex"].map(
+        (ext) => `${fileNameNoExt}.${ext}`
+      )
+    );
+  }
 };
 
 export const TEMPLATES = {
