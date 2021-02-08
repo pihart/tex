@@ -16,17 +16,22 @@ const path = require("path");
 const shell = require("./shell");
 const escapeString = (str) => str.replace(/"/g, `\\"`);
 const wrapString = (str) => `"${escapeString(str)}"`;
-const exec = (src, out, options = {}, pwd = "") => {
+const exec = async (src, fileNameNoExt, options = {}, pwd = "") => {
     shell.cd(pwd);
     const { "-o": _ } = options, rest = __rest(options, ["-o"]);
-    const cliOptions = Object.entries(Object.assign(Object.assign({}, rest), { output: out }))
+    const cliOptions = Object.entries(Object.assign(Object.assign({}, rest), { output: `${fileNameNoExt}.tex` }))
         .map(([key, val]) => {
         const keyPrepended = val === false ? "" : key.startsWith("-") ? key : `--${key}`;
         const valWrapped = typeof val === "boolean" ? "" : wrapString(val);
         return `${keyPrepended} ${valWrapped}`;
     })
         .join(" ");
-    return shell.exec(`pandoc ${wrapString(src)} ${cliOptions}`);
+    await shell.exec(`pandoc ${wrapString(src)} ${cliOptions}`);
+    await shell.exec(`pdflatex ${wrapString(fileNameNoExt)}`);
+    await shell.exec(`bibtex ${wrapString(fileNameNoExt)}`);
+    await shell.exec(`pdflatex ${wrapString(fileNameNoExt)}`);
+    await shell.exec(`pdflatex ${wrapString(fileNameNoExt)}`);
+    await shell.rm(["aux", "bbl", "blg", "log", "out", "tex"].map((ext) => `${fileNameNoExt}.${ext}`));
 };
 exports.exec = exec;
 exports.TEMPLATES = {

@@ -2,11 +2,11 @@
 
 import { exec, FILTERS, TEMPLATES } from "../lib/pandoc";
 
-const [src, out, dirname] = process.argv.slice(2);
+const [src, fileNameNoExt, dirname] = process.argv.slice(2);
 
 exec(
   src,
-  out,
+  fileNameNoExt,
   {
     template: TEMPLATES.latex,
     filter: FILTERS.latex,

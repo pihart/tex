@@ -1,6 +1,6 @@
-export declare const exec: (src: string, out: string, options?: {
+export declare const exec: (src: string, fileNameNoExt: string, options?: {
     [key: string]: string | boolean;
-}, pwd?: string) => Promise<string>;
+}, pwd?: string) => Promise<void>;
 export declare const TEMPLATES: {
     latex: string;
 };

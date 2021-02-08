@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Pandoc LaTeX Current File" type="NodeJSConfigurationType" application-parameters="$FileName$ $FileNameWithoutExtension$.pdf $FileDir$" node-parameters="--require ts-node/register" path-to-js-file="src/script/pandoc_latex_current_file.ts" working-dir="$PROJECT_DIR$">
+  <configuration default="false" name="Pandoc LaTeX Current File" type="NodeJSConfigurationType" application-parameters="$FileName$ $FileNameWithoutExtension$ $FileDir$" node-parameters="--require ts-node/register" path-to-js-file="src/script/pandoc_latex_current_file.ts" working-dir="$PROJECT_DIR$">
     <method v="2" />
   </configuration>
 </component>
