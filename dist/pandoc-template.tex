@@ -9,8 +9,10 @@
 
 $if(pset)$
 \usepackage[links,theorem,thmboxed,footnote]{avimehra}
+$elseif(worksheet)$
+\usepackage[page,links,theorem,thmboxed,header,footer,$if(wide)$thin,$endif$$if(footnote)$footnote$endif$]{avimehra}
 $elseif(default-style)$
-\usepackage[page,links,theorem,thmboxed,handout,$if(wide)$thin$else$center$endif$,$if(footnote)$footnote$endif$]{avimehra}
+\usepackage[page,links,theorem,thmboxed,$if(wide)$thin,$endif$$if(footnote)$footnote$endif$]{avimehra}
 $endif$
 
 $if(title)$
