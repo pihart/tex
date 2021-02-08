@@ -14,7 +14,7 @@ $elseif(default-style)$
 $endif$
 
 $if(title)$
-\title{$title$}
+\title{$title$$if(subtitle)$\\\large{$subtitle$}$endif$}
 $endif$
 $if(author)$
 \author{$author$}
