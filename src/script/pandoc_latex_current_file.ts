@@ -1,6 +1,6 @@
 // For use from run config Pandoc_LaTeX_Current_File.xml
 
-import exec, { FILTERS, TEMPLATES } from "../lib/pandoc";
+import { exec, FILTERS, TEMPLATES } from "../lib/pandoc";
 
 const [src, out, dirname] = process.argv.slice(2);
 
