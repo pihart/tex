@@ -93,6 +93,12 @@ $endif$
     \end{abstract}
     $endif$
 
+    $if(toc)$
+    \tableofcontents
+    $elseif(table-of-contents)$
+    \tableofcontents
+    $endif$
+
     $if(prompt)$
     \bluebf{$prompt$}
     $endif$
