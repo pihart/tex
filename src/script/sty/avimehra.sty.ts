@@ -52,8 +52,8 @@ async function execute() {
       description:
         "% Color links, apply hyperref, and add graphic next to links called with \\href\n% Requires `color`",
     },
-    { name: "header", if: header },
     { name: "footer", if: footer },
+    { name: "header", if: header },
     { name: "theorem", if: theorem },
     { name: "thmboxed", if: thmboxed },
     { name: "page", if: page },
