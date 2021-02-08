@@ -27,11 +27,14 @@ export const exec = async (
       return `${keyPrepended} ${valWrapped}`;
     })
     .join(" ");
+
+  const pdfLaTeX = () =>
+    shell.exec(`pdflatex ${wrapString(fileNameNoExt)} -halt-on-error`);
   await shell.exec(`pandoc ${wrapString(src)} ${cliOptions}`);
-  await shell.exec(`pdflatex ${wrapString(fileNameNoExt)}`);
+  await pdfLaTeX();
   await shell.exec(`bibtex ${wrapString(fileNameNoExt)}`);
-  await shell.exec(`pdflatex ${wrapString(fileNameNoExt)}`);
-  await shell.exec(`pdflatex ${wrapString(fileNameNoExt)}`);
+  await pdfLaTeX();
+  await pdfLaTeX();
   await shell.rm(
     ["aux", "bbl", "blg", "log", "out", "tex"].map(
       (ext) => `${fileNameNoExt}.${ext}`
