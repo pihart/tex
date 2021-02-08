@@ -1,31 +1,5 @@
 const { Div, RawBlock, stdio } = require("pandoc-filter");
 
-const LATEX_ENVS = [
-  ...[
-    ...["theorem", "lemma", "corollary", "proposition", "conjecture"],
-    ...[
-      "answer",
-      "case",
-      "claim",
-      "conjecture",
-      "definition",
-      "exercise",
-      "example",
-      "fact",
-      "note",
-      "problem",
-      "remark",
-      "question",
-    ],
-    "proof",
-  ]
-    .map((env) => [env, `${env}*`])
-    .flat(),
-  ...["ex", "exr", "prob", "prop", "q", "thm", "cor", "def", "lemma"].map(
-    (env) => `${env}boxed`
-  ),
-];
-
 /**
  * Convert div.<env_name> to LaTeX environment <env_name> with contents parsed as Markdown.
  * Convert CodeBlock with language <env_name> to LaTeX environment <env_name> with contents unparsed.
@@ -41,19 +15,17 @@ processLatex = (ele) => {
 
   const [env] = classList; // Assuming that, by the next line, this is a latex env, this is that env; the name is thus appropriate
 
-  if (LATEX_ENVS.includes(env)) {
-    if (ele.t === "Div") {
-      return Div(
-        ["", [], []],
-        [
-          RawBlock("latex", `\\begin{${env}}`),
-          ...childrenOrCode, // Leave this to get processed as markdown
-          RawBlock("latex", `\\end{${env}}`),
-        ]
-      );
-    } else if (ele.t === "CodeBlock") {
-      return RawBlock("latex", `\\begin{${env}}${childrenOrCode}\\end{${env}}`);
-    }
+  if (ele.t === "Div") {
+    return Div(
+      ["", [], []],
+      [
+        RawBlock("latex", `\\begin{${env}}`),
+        ...childrenOrCode, // Leave this to get processed as markdown
+        RawBlock("latex", `\\end{${env}}`),
+      ]
+    );
+  } else if (ele.t === "CodeBlock") {
+    return RawBlock("latex", `\\begin{${env}}${childrenOrCode}\\end{${env}}`);
   }
 };
 
