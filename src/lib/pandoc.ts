@@ -42,7 +42,7 @@ export const exec = async (
     console.error(e);
   } finally {
     await shell.rm(
-      ["aux", "bbl", "blg", "log", "out", "tex"].map(
+      ["aux", "bbl", "blg", "log", "out", "tex", "toc"].map(
         (ext) => `${fileNameNoExt}.${ext}`
       )
     );

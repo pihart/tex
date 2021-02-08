@@ -36,7 +36,7 @@ const exec = async (src, fileNameNoExt, options = {}, pwd = "") => {
         console.error(e);
     }
     finally {
-        await shell.rm(["aux", "bbl", "blg", "log", "out", "tex"].map((ext) => `${fileNameNoExt}.${ext}`));
+        await shell.rm(["aux", "bbl", "blg", "log", "out", "tex", "toc"].map((ext) => `${fileNameNoExt}.${ext}`));
     }
 };
 exports.exec = exec;
