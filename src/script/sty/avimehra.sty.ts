@@ -1,6 +1,7 @@
-import generateSty from "../../lib/generate-sty";
-import { readFile, writeFile } from "fs/promises";
+import { promises as fsPromises } from "fs";
+const { readFile, writeFile } = fsPromises;
 import * as path from "path";
+import generateSty from "../../lib/generate-sty";
 
 async function execute() {
   const [
