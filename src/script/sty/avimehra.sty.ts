@@ -37,20 +37,23 @@ async function execute() {
 
   const rules = [
     { name: "nomath", else: math },
-    { name: "nocolor", else: color, description: "% Prevents defining colors" },
+    {
+      name: "nocolor",
+      else: color,
+      description: "% Prevents defining colors" as const,
+    },
     { name: "nohandout", else: handout },
     {
       name: "computing",
       else: computing,
-      description: "% Computing\n% Requires `color`",
+      description: "% Computing\n% Requires `color`" as const,
     },
     { name: "footnote", if: "\\RequirePackage[bottom]{footmisc}" },
     { name: "physics", if: physics },
     {
       name: "links",
       if: links,
-      description:
-        "% Color links, apply hyperref, and add graphic next to links called with \\href\n% Requires `color`",
+      description: "% Color links, apply hyperref, and add graphic next to links called with \\href\n% Requires `color`" as const,
     },
     { name: "header", if: header },
     { name: "footer", if: footer },

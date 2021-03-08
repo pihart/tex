@@ -18,7 +18,7 @@ export type Rule = {
   name: BasicString;
   if?: LaTeX;
   else?: LaTeX;
-  description?: string;
+  description?: `%${string}`;
 };
 
 /**
