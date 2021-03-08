@@ -3,7 +3,7 @@ const { readFile, writeFile } = fsPromises;
 import * as path from "path";
 import generateSty from "../../lib/generate-sty";
 
-async function execute() {
+async function execute(encoding: BufferEncoding = "utf-8") {
   const [
     math,
     computing,
@@ -17,24 +17,24 @@ async function execute() {
     footer,
     page,
     header,
-  ] = (
-    await Promise.all(
-      [
-        "math",
-        "computing",
-        "color",
-        "physics",
-        "links",
-        "handout",
-        "theorem",
-        "thin",
-        "thmboxed",
-        "footer",
-        "page",
-        "header",
-      ].map((name) => readFile(path.join(__dirname, `includes/${name}.sty`)))
+  ] = await Promise.all(
+    [
+      "math",
+      "computing",
+      "color",
+      "physics",
+      "links",
+      "handout",
+      "theorem",
+      "thin",
+      "thmboxed",
+      "footer",
+      "page",
+      "header",
+    ].map((name) =>
+      readFile(path.join(__dirname, `includes/${name}.sty`), encoding)
     )
-  ).map((file) => file.toString());
+  );
 
   const rules = [
     { name: "nomath", else: math },
