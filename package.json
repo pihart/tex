@@ -3,7 +3,8 @@
   "version": "5.1.1",
   "scripts": {
     "build": "tsc",
-    "postbuild": "npm run copy-files",
+    "postbuild": "npm run copy-files && npm run avimehra.sty",
+    "avimehra.sty": "node dist/script/sty/avimehra.sty.js",
     "copy-files": "node copy-files.js"
   },
   "dependencies": {
