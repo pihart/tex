@@ -21,7 +21,7 @@ Example: [avimehra.sty.ts](src/script/sty/avimehra.sty.ts) is used to generate t
 ## pandoc/Markdown
 
 ```shell
-npm i https://github.com/pihart/tex
+npm i @mehra/tex
 ```
 
 ### Template
