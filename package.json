@@ -16,5 +16,13 @@
     "ts-node": "^9.1.1"
   },
   "main": "dist/index.js",
-  "types": "dist/index.d.ts"
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pihart/tex"
+  },
+  "author": {
+    "url": "https://pihart.github.io",
+    "name": "Avi Mehra"
+  }
 }
