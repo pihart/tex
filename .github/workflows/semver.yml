@@ -3,7 +3,7 @@ name: NPM SemVer
 on:
   pull_request:
     types: [closed]
-    branches: [master, main]
+    branches: [main]
 
 jobs:
   semver:
