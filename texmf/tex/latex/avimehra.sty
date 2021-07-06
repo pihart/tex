@@ -199,8 +199,6 @@
 % Requires `color`
 %%%%%%%%%%%%%%%%
 \ifavimehrageneratedcomputing
-  
-\else
   \usepackage{fancyvrb}
 
 \newcommand\LOOP{L\textsc{oop}}
@@ -215,6 +213,8 @@
 \newcommand{\code}[1]{\VerbatimInput[commandchars]{includes/code/#1}}
 \newcommand{\importcode}[1]{\VerbatimInput{includes/code/#1}}
 
+\else
+  
 \fi
 
 \ifavimehrageneratedfootnote

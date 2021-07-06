@@ -46,7 +46,7 @@ async function execute(encoding: BufferEncoding = "utf-8") {
     { name: "nohandout", else: handout },
     {
       name: "computing",
-      else: computing,
+      if: computing,
       description: "% Computing\n% Requires `color`" as const,
     },
     { name: "footnote", if: "\\RequirePackage[bottom]{footmisc}" },
