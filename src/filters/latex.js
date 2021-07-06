@@ -15,7 +15,7 @@ processLatex = (ele) => {
 
   const [env] = classList; // Assuming that, by the next line, this is a latex env, this is that env; the name is thus appropriate
 
-  if (ele.t === "Div") {
+  if (ele.t === "Div")
     return Div(
       ["", [], []],
       [
@@ -24,7 +24,11 @@ processLatex = (ele) => {
         RawBlock("latex", `\\end{${env}}`),
       ]
     );
-  } else if (ele.t === "CodeBlock") {
+
+  if (ele.t === "CodeBlock") {
+    if (["latex", "tex"].includes(env))
+      return RawBlock("latex", childrenOrCode);
+
     return RawBlock("latex", `\\begin{${env}}${childrenOrCode}\\end{${env}}`);
   }
 };
