@@ -9,7 +9,7 @@ const { Div, RawBlock, stdio } = require("pandoc-filter");
 processLatex = (ele) => {
   if (!["Div", "CodeBlock"].includes(ele.t)) return;
 
-  const [attr, childrenOrCode] = ele.c; // when Div, children: Block[]; when CodeBlock, code: string
+  const [attr, childrenOrCode] = ele.c; // when Div, we have children: Block[]; when CodeBlock, we have code: string
   const [, classList] = attr;
   if (classList.length !== 1) return; // Not implemented
 
