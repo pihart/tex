@@ -44,6 +44,17 @@ $if(graphics)$
     $endif$
 $endif$
 
+$if(highlighting-macros)$
+    $highlighting-macros$
+$endif$
+
+$if(listings)$
+    \usepackage{listings}
+    \newcommand{\passthrough}[1]{#1}
+    \lstset{defaultdialect=[5.3]Lua}
+    \lstset{defaultdialect=[x86masm]Assembler}
+$endif$
+
 $for(package)$
     $if(package.name)$
         $if(package.options)$
