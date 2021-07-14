@@ -29,15 +29,21 @@ export const exec = async (
     .join(" ");
 
   const pandoc = () => shell.exec(`pandoc ${wrapString(src)} ${cliOptions}`);
-  const pdfLaTeX = () =>
+  const pdfLaTeX = (draftmode = false) => () =>
     shell.exec(
-      `pdflatex ${wrapString(fileNameNoExt)} -halt-on-error`,
+      `pdflatex ${wrapString(fileNameNoExt)} -halt-on-error ${
+        draftmode ? "-draftmode" : ""
+      }`,
       ({ code }) => code !== 0
     );
   const bibtex = () => shell.exec(`bibtex ${wrapString(fileNameNoExt)}`);
 
   try {
-    await pandoc().then(pdfLaTeX).then(bibtex).then(pdfLaTeX).then(pdfLaTeX);
+    await pandoc()
+      .then(pdfLaTeX(true))
+      .then(bibtex)
+      .then(pdfLaTeX(true))
+      .then(pdfLaTeX(false));
   } catch (e) {
     console.error(e);
   } finally {
