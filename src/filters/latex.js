@@ -10,26 +10,27 @@ processLatex = (ele) => {
   if (!["Div", "CodeBlock"].includes(ele.t)) return;
 
   const [attr, childrenOrCode] = ele.c; // when Div, we have children: Block[]; when CodeBlock, we have code: string
-  const [, classList] = attr;
+  const [id, classList] = attr;
   if (classList.length !== 1) return; // Not implemented
 
   const [env] = classList; // Assuming that, by the next line, this is a latex env, this is that env; the name is thus appropriate
+  const labelText = id ? `\\label{${id}}` : "";
 
   if (ele.t === "Div")
     return Div(
-      ["", [], []],
-      [
-        RawBlock("latex", `\\begin{${env}}`),
-        ...childrenOrCode, // Leave this to get processed as markdown
-        RawBlock("latex", `\\end{${env}}`),
-      ]
+        ["", [], []],
+        [
+          RawBlock("latex", `\\begin{${env}}${labelText}`),
+          ...childrenOrCode, // Leave this to get processed as markdown
+          RawBlock("latex", `\\end{${env}}`),
+        ]
     );
 
   if (ele.t === "CodeBlock") {
     if (["latex", "tex"].includes(env))
       return RawBlock("latex", childrenOrCode);
 
-    return RawBlock("latex", `\\begin{${env}}${childrenOrCode}\\end{${env}}`);
+    return RawBlock("latex", `\\begin{${env}}${labelText}${childrenOrCode}\\end{${env}}`);
   }
 };
 
