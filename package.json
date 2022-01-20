@@ -1,6 +1,6 @@
 {
   "name": "@mehra/tex",
-  "version": "5.10.0",
+  "version": "5.11.0",
   "scripts": {
     "build": "tsc",
     "postbuild": "npm run copy-files && npm run avimehra.sty",
