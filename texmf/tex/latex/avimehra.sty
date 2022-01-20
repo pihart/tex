@@ -93,6 +93,8 @@
 \newcommand{\dbr}[1]{\llbracket #1 \rrbracket}
 \newcommand{\set}[1]{\cbr{#1}}
 \newcommand{\components}[1]{\left\langle #1 \right\rangle}
+%
+\renewcommand{\restriction}{\mathord{\upharpoonright}}
 
 % Evenly spaced matrix
 \newcommand\sqmatrix[2][c]{%
@@ -104,10 +106,12 @@
 
 % Field and ramification theories
 \newcommand{\F}{\mathbb{F}} % Finite field
+\DeclareMathOperator{\GF}{GF} % Galois field
 \newcommand{\OO}{\mathcal{O}} % Order
 %\renewcommand{\P}{\mathbb{P}}
 \newcommand{\p}{\mathfrak{p}} % Prime ideals
-\newcommand{\q}{\mathfrak{q}}
+\newcommand{\q}{\mathfrak{q}} % (prime next to p)$
+\newcommand{\PP}{\mathfrak P} % (prime above p)
 \newcommand{\Quad}[1]{\Q\del{\sqrt{#1}}} % quadratic field
 
 % Logic
@@ -126,6 +130,11 @@
 \DeclareMathOperator{\Cov}{Cov} % Covolume
 \DeclareMathOperator{\Conv}{Conv} % Convex hull
 \DeclareMathOperator{\im}{im} % Image
+\DeclareMathOperator{\ord}{ord} % Order
+\DeclareMathOperator{\Cl}{Cl} % Class group
+\DeclareMathOperator{\Pic}{Pic} % Picard group
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\coker}{coker} % Cokernel
 
 % Elementary number theory
 \newcommand{\divides}{\mathrel{\mid}}
