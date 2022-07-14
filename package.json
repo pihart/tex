@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "typescript": "^4.3.5",
-    "ts-node": "^10.1.0"
+    "ts-node": "^10.9.1"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
