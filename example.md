@@ -8,17 +8,16 @@ Hi.
 
 # Some problems
 
-::: probboxed
+::: {.probboxed #prob:double sbr="Adding two integers"}
 What is $2 + 2$?
 ::::
 
 To solve this we use the following lemma:
 
-::: lemmaboxed
-\label{lemma:double}
+::: {.lemmaboxed #lemma:double sbr="Double"}
 
 $$
-    a + a = 2a.
+a + a = 2a.
 $$
 
 :::
@@ -31,7 +30,7 @@ Trivial.
 There are no integers $a$, $b$, $c$, and $n > 2$ satisfying
 
 $$
-    a^n + b^n = c^n.
+a^n + b^n = c^n.
 $$
 
 :::
