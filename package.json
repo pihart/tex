@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@types/shelljs": "^0.8.9",
-    "pandoc-filter": "^2.0.3",
+    "pandoc-filter": "^2.1.0",
     "shelljs": "^0.8.5"
   },
   "devDependencies": {
